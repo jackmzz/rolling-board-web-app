@@ -1,0 +1,41 @@
+name: Pipeline to check lint, format & type checks
+on:
+  pull_request:
+    -main
+    -develop
+
+env:
+  ENVIRONMENT: "Development"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: "actions/checkout@v4"
+      - name: Setup Node.js
+        uses: "actions/setup-node@v3"
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: "npm run build"
+  check:
+    steps:
+      - name: checkout repository
+        uses: "actions/checkout@v4"
+      - name: Setup Node.js
+        uses: "actions/setup-node@v3"
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm install
+      - name: Run lint
+        run: "npm run lint"
+      - name: Run format
+        run: "npm run format"
+      - name: Run type check
+        run: "npm run type-check"
+
+

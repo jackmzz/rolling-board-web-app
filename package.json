@@ -10,7 +10,8 @@
     "prepare": "husky",
     "type-check": "tsc --noEmit",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "pre-commit": "npx lint-staged --config lint-staged.config.js && npm run type-check"
+    "pre-commit": "npx lint-staged --config lint-staged.config.js && npm run type-check",
+    "figma:tokens": "tsx scripts/figma-tokens.ts"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -31,6 +32,7 @@
     "lint-staged": "^16.2.7",
     "prettier": "3.7.4",
     "tailwindcss": "^4",
+    "tsx": "^4.19.2",
     "typescript": "^5"
   }
 }
