@@ -8,14 +8,17 @@
     "start": "next start",
     "lint": "eslint",
     "prepare": "husky",
+    "type-check": "tsc --noEmit",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "pre-commit": "npm run lint && npm run format"
+    "pre-commit": "npx lint-staged --config lint-staged.config.js && npm run type-check"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "next": "16.1.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
